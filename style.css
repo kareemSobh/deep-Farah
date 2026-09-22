@@ -1,0 +1,762 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #f7fbfe;
+  --paper: #ffffff;
+  --brown: #263e52;
+  --taupe: #527895;
+  --gold: #8faabd;
+  --sage: #dce8f0;
+  --dark: #294a64;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: "Cormorant Garamond", serif;
+
+  text-align: center;
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================
+   Cover
+========================= */
+
+.cover {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: url("assets/cover.svg") center/cover no-repeat;
+}
+
+.cover-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(237, 246, 252, 0.10),
+      rgba(89, 126, 153, 0.28)
+    ),
+    radial-gradient(
+      circle at center,
+      transparent 25%,
+      rgba(33, 67, 91, 0.10)
+    );
+}
+
+.cover-card {
+  position: relative;
+  width: min(92%, 650px);
+  padding: clamp(38px, 7vw, 72px) 26px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background: rgba(246, 251, 254, 0.56);
+  color: var(--dark);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 28px 80px rgba(36, 75, 103, 0.18);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 14px;
+  text-align: center;
+}
+
+.cover h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 8px 0 20px;
+  font-size: clamp(62px, 14vw, 112px);
+  line-height: 0.76;
+  font-weight: 500;
+  text-align: center;
+}
+
+.cover h1 b {
+  margin: 12px 0;
+  color: #7f9eb5;
+  font-size: 0.38em;
+  font-weight: 400;
+}
+
+.cover-date {
+  margin: 30px 0;
+  letter-spacing: 0.34em;
+  font-size: 19px;
+  text-align: center;
+}
+
+.primary-btn,
+.outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.primary-btn {
+  border: 1px solid #6f93ad;
+  background: #527895;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(41, 74, 100, 0.16);
+}
+
+.primary-btn:hover,
+.outline-btn:hover {
+  transform: translateY(-3px);
+}
+
+.sound-note {
+  margin: 18px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  text-align: center;
+  opacity: 0.82;
+}
+
+/* =========================
+   General Sections
+========================= */
+
+.section {
+  width: min(100%, 980px);
+  margin: auto;
+  padding: 95px 22px;
+  text-align: center;
+}
+
+.ornament {
+  margin-bottom: 24px;
+  color: var(--gold);
+  font-size: 28px;
+  text-align: center;
+}
+
+/* =========================
+   Quran Verse
+========================= */
+
+.verse {
+  font-family: "Amiri", serif;
+  text-align: center;
+  direction: rtl;
+}
+
+.bismillah {
+  font-size: clamp(22px, 4vw, 30px);
+  text-align: center;
+}
+
+.ayah {
+  max-width: 800px;
+  margin: 28px auto;
+  font-size: clamp(25px, 5vw, 38px);
+  line-height: 2;
+  text-align: center;
+}
+
+.surah {
+  color: var(--taupe);
+  font-size: 16px;
+  text-align: center;
+}
+
+.verse .ornament {
+  text-align: center;
+}
+
+/* =========================
+   Welcome
+========================= */
+
+.welcome {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.welcome h2 {
+  margin: 18px 0 28px;
+  color: var(--taupe);
+  font-size: clamp(58px, 12vw, 102px);
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: .9;
+}
+
+.welcome h2 div {
+  display: block;
+}
+
+.welcome h2 .amp {
+  color: #8FB5D9;
+  font-size: .42em;
+  margin: 8px 0;
+}
+
+.arabic-copy {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(18px, 3.6vw, 25px);
+  line-height: 1.7;
+  text-align: center;
+  direction: ltr;
+}
+
+/* =========================
+   Couple Photo
+========================= */
+
+.photo-panel {
+  position: relative;
+  width: min(92%, 1050px);
+  margin: 0 auto 55px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(41, 74, 100, 0.16);
+}
+
+.photo-panel img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.photo-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background: linear-gradient(
+    transparent,
+    rgba(31, 63, 86, 0.72)
+  );
+  color: #fff;
+  text-align: center;
+}
+
+.photo-caption strong {
+  letter-spacing: 0.14em;
+}
+
+/* =========================
+   Section Headings
+========================= */
+
+.section-heading {
+  text-align: center;
+}
+
+.section-heading span {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+}
+
+.section-heading h3 {
+  margin: 8px 0 38px;
+  color: var(--taupe);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 6vw, 52px);
+  font-weight: 400;
+  text-align: center;
+}
+
+/* =========================
+   Wedding Details
+========================= */
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.detail-card {
+  padding: 34px 22px;
+  border: 1px solid #d4e1ea;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(41, 74, 100, 0.07);
+  text-align: center;
+}
+
+.detail-icon {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--gold);
+  font-size: 31px;
+  text-align: center;
+}
+
+.detail-card h4 {
+  margin: 0 0 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.detail-card p {
+  margin: 5px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.outline-btn {
+  border: 1px solid #b9cedd;
+  color: var(--taupe);
+}
+
+.outline-btn:hover {
+  background: var(--taupe);
+  color: #fff;
+}
+
+/* =========================
+   Countdown
+========================= */
+
+.countdown-section {
+  padding: 100px 20px;
+  background:
+    linear-gradient(
+      rgba(225, 237, 245, 0.88),
+      rgba(193, 214, 228, 0.90)
+    ),
+    url("assets/cover.svg") center/cover no-repeat;
+  color: var(--dark);
+  text-align: center;
+}
+
+.countdown-section .section-heading {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-heading.light h3 {
+  color: var(--dark);
+}
+
+.section-heading.light span {
+  color: var(--taupe);
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 145px));
+  justify-content: center;
+  gap: 14px;
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.countdown div {
+  padding: 24px 12px;
+  border: 1px solid rgba(90, 126, 153, 0.28);
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--dark);
+  text-align: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 12px 30px rgba(41, 74, 100, 0.08);
+}
+
+.countdown strong {
+  display: block;
+  font-size: clamp(40px, 8vw, 66px);
+  font-weight: 400;
+}
+
+.countdown span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp {
+  width: min(100%, 760px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.rsvp .section-heading {
+  text-align: center;
+}
+
+.rsvp .section-heading h3 {
+  text-align: center;
+}
+
+.rsvp-intro {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* الفورم نفسه فقط ناحية الشمال */
+
+form {
+  display: grid;
+  gap: 17px;
+  margin: 30px auto;
+  text-align: left;
+  direction: ltr;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  text-align: left;
+  direction: ltr;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #c7d8e4;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--brown);
+  padding: 14px 15px;
+  outline: none;
+  text-align: left;
+  direction: ltr;
+}
+
+input::placeholder,
+textarea::placeholder {
+  text-align: left;
+  direction: ltr;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(82, 120, 149, 0.14);
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+form .primary-btn {
+  justify-self: center;
+}
+
+.form-note {
+  color: #6c8292;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+  padding: 65px 20px;
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+}
+
+footer h3 {
+  margin: 8px 0;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
+}
+
+footer span {
+  letter-spacing: 0.22em;
+}
+
+/* =========================
+   Animations
+========================= */
+
+.reveal {
+  animation: fadeUp 1.2s ease both;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   Tablet and Mobile
+========================= */
+
+@media (max-width: 760px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, minmax(115px, 1fr));
+  }
+
+  .photo-caption {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding: 75px 17px;
+  }
+
+  .cover-card {
+    width: 100%;
+  }
+
+  .cover-date {
+    letter-spacing: 0.2em;
+  }
+
+  .countdown {
+    gap: 9px;
+  }
+
+  .countdown div {
+    padding: 18px 8px;
+  }
+
+  footer h3 {
+    font-size: 36px;
+  }
+}
+/* ===== Light luxury refinements ===== */
+body {
+  background:
+    radial-gradient(circle at top, rgba(220, 234, 243, 0.42), transparent 38%),
+    var(--cream);
+}
+
+.cover .eyebrow,
+.cover-date {
+  color: #385c76;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.45);
+}
+
+.cover h1 {
+  color: #244861;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.34);
+}
+
+.countdown strong {
+  color: var(--dark);
+}
+
+.countdown span {
+  color: #527895;
+}
+
+footer {
+  background: linear-gradient(145deg, #294a64, #3f6784);
+}
+
+
+
+/* =========================
+   Final scroll stability
+========================= */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+ 
+}
+
+main,
+.invitation,
+#invitation {
+  width: 100%;
+  min-height: 0;
+  overflow: visible;
+}
+
+.reveal-on-scroll {
+   opacity: 1;
+  transform: none;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.music-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+
+  background: rgba(11, 44, 95, 0.92);
+  color: white;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  box-shadow: 0 8px 24px rgba(11, 44, 95, 0.25);
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.music-button:hover {
+  transform: scale(1.07);
+  background: #123d78;
+}
+
+.music-button:active {
+  transform: scale(0.95);
+}
+
+.music-button.music-playing #musicIcon {
+  animation: musicPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@media (max-width: 600px) {
+  .music-button {
+    right: 15px;
+    bottom: 15px;
+
+    width: 48px;
+    height: 48px;
+
+    font-size: 21px;
+  }
+}
