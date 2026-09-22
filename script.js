@@ -229,7 +229,7 @@ function resetToCover() {
      RSVP submissions will start being saved. While this is empty, the form
      stays fully usable but sends nothing anywhere.
   */
-  const googleScriptUrl = "";
+  const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzQmHlDXO52Zx242ElutvEyTuNI_yHAjhJrWk99hHQs4D8Mexxza0-MwwtlsHp1hJdKjQ/exec";
 
   const rsvpForm = document.getElementById("rsvpForm");
 
